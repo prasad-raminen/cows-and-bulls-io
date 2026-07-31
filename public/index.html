@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cows & Bulls IO - Code Breaking</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- STEP MENU -->
+  <div id="menu-container" class="card">
+    <div class="brand-header">
+      <h1>Cows & Bulls <span class="badge">ONLINE</span></h1>
+      <p class="subtitle">No zeros. No repeating characters. Pure deduction.</p>
+    </div>
+    
+    <label>1. Choose Your Code Type:</label>
+    <select id="mode-select">
+      <option value="number">🔢 4-Digit Numbers (1-9 only)</option>
+      <option value="word">🔤 4-Letter Words (Unique letters)</option>
+    </select>
+
+    <label>2. Select Game Mode:</label>
+    <select id="type-select">
+      <option value="race">👥 Friends Race (2-6 Players)</option>
+      <option value="1v1">⚔️ 1v1 Duel (Set Your Own Codes for Each Other)</option>
+      <option value="team">🛡️ Team Clash (Unlimited Teams)</option>
+    </select>
+
+    <div id="team-picker" class="hidden">
+      <label>Choose Your Team:</label>
+      <select id="team-select">
+        <option value="RED">🔴 Team Red</option>
+        <option value="BLUE">🔵 Team Blue</option>
+      </select>
+    </div>
+
+    <label>3. Room Action:</label>
+    <div class="action-toggle">
+      <button type="button" id="toggle-create" class="toggle-btn active">Create New Game</button>
+      <button type="button" id="toggle-join" class="toggle-btn">Join With Code</button>
+    </div>
+
+    <div id="join-code-box" class="hidden">
+      <input type="text" id="room-input" placeholder="Enter 5-letter code (e.g. A9K2X)" maxlength="6" />
+    </div>
+
+    <button id="action-btn" class="btn-primary">Create Room & Play 🚀</button>
+  </div>
+
+  <!-- ACTIVE GAME BOARD -->
+  <div id="game-container" class="card hidden">
+    <div class="header-row">
+      <button id="leave-btn" class="btn-secondary">⬅ Dashboard</button>
+      <div class="room-info">
+        <span class="room-label">ROOM CODE:</span>
+        <strong id="room-title">---</strong>
+      </div>
+    </div>
+
+    <!-- 1V1 SECRET SETUP BOX (Only shown in 1v1 Mode) -->
+    <div id="setup-box" class="setup-box hidden">
+      <h3>🔒 1v1 Mode: Set Your Secret Code</h3>
+      <p id="setup-instructions">Enter a 4-character code for your opponent to guess!</p>
+      <form id="secret-form" autocomplete="off">
+        <div class="input-group">
+          <input type="text" id="secret-input" maxlength="4" placeholder="Type secret..." required />
+          <button type="submit" id="secret-btn" class="btn-success">Lock In 🔒</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- VICTORY BANNER -->
+    <div id="victory-banner" class="victory-box hidden">
+      <h3 id="winner-text">🎉 Round Over!</h3>
+      <button id="restart-btn" class="btn-success">Play Next Round 🔄</button>
+    </div>
+
+    <!-- ERROR ALERT BOX -->
+    <div id="error-msg" class="error-box hidden"></div>
+
+    <!-- The Guess Input Form -->
+    <form id="guess-form" autocomplete="off">
+      <div class="input-group">
+        <input type="text" id="guess-input" maxlength="4" placeholder="Type 4 unique characters..." required />
+        <button type="submit" id="guess-btn" class="btn-primary">Guess</button>
+      </div>
+    </form>
+
+    <!-- History Feed Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Guess</th>
+          <th>Bulls 🐂</th>
+          <th>Cows 🐄</th>
+        </tr>
+      </thead>
+      <tbody id="history-log"></tbody>
+    </table>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

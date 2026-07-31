@@ -1,0 +1,249 @@
+* { 
+  box-sizing: border-box; 
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+}
+
+body {
+  background: #f0fdf4; /* Very soft mint/white background */
+  color: #1e293b;
+  display: flex;
+  justify-content: center;
+  padding: 40px 15px;
+  margin: 0;
+}
+
+/* Main Card Containers */
+.card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 580px;
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid #dcfce7;
+  box-shadow: 0 10px 30px -5px rgba(16, 185, 129, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+}
+
+.brand-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.brand-header h1 {
+  margin: 0;
+  color: #065f46;
+  font-size: 1.8rem;
+}
+.subtitle {
+  color: #64748b;
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+.badge { 
+  background: #dcfce7; 
+  color: #15803d; 
+  padding: 4px 10px; 
+  border-radius: 20px; 
+  font-size: 0.75rem; 
+  vertical-align: middle;
+}
+
+.hidden { display: none !important; }
+
+/* Labels & Form Elements */
+label { 
+  display: block; 
+  margin-top: 1.25rem; 
+  font-weight: 600; 
+  color: #334155; 
+  font-size: 0.9rem;
+}
+
+select, input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+select:focus, input[type="text"]:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+/* Smart Action Toggle Buttons */
+.action-toggle {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+.toggle-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #64748b;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.toggle-btn.active {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #047857;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #10b981;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1.75rem;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #059669; }
+
+.btn-secondary {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-secondary:hover { background: #e2e8f0; }
+
+.btn-success {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.btn-success:hover { background: #059669; }
+
+/* Active Game Board Elements */
+.header-row { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  border-bottom: 2px solid #f1f5f9; 
+  padding-bottom: 15px; 
+  margin-bottom: 15px;
+}
+.room-info {
+  text-align: right;
+}
+.room-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  display: block;
+}
+.room-info strong {
+  color: #047857;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+.input-group input { margin-top: 0; }
+.input-group button { margin-top: 0; width: 120px; }
+
+/* Tables & Badges */
+table { 
+  width: 100%; 
+  margin-top: 1.5rem; 
+  border-collapse: collapse; 
+}
+th, td { 
+  padding: 12px 10px; 
+  text-align: center; 
+  border-bottom: 1px solid #f1f5f9; 
+}
+th { 
+  color: #64748b; 
+  font-size: 0.85rem; 
+  text-transform: uppercase; 
+  letter-spacing: 0.5px;
+}
+.bull-badge {
+  background: #dcfce7;
+  color: #166534;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+.cow-badge {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+.win-row { 
+  background: #f0fdf4; 
+}
+
+/* Victory Banner */
+.victory-box {
+  background: #ecfdf5;
+  border: 2px dashed #10b981;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  margin: 15px 0;
+}
+.victory-box h3 { margin: 0 0 10px 0; color: #065f46; font-size: 1.3rem; }
+
+/* Inline Validation Error Box */
+.error-box {
+  background: #fef2f2;
+  border: 1px solid #ef4444;
+  color: #b91c1c;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* 1v1 Setup Box */
+.setup-box {
+  background: #fffbeb;
+  border: 2px dashed #f59e0b;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  margin: 15px 0;
+}
+.setup-box h3 {
+  margin: 0 0 6px 0;
+  color: #92400e;
+  font-size: 1.1rem;
+}
+.setup-box p {
+  margin: 0 0 10px 0;
+  color: #b45309;
+  font-size: 0.85rem;
+}
